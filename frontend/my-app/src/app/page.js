@@ -1,7 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import React, { useEffect } from 'react'
+import axios from 'axios'
 
 export default function Home() {
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const res = await axios.get("http://localhost:3001/")
+        console.log("🚀 ~ fetch ~ res:", res)
+      } catch (error) {
+        console.log("🚀 ~ fetch ~ error:", error)
+      }
+    }
+    fetch()
+  }, [])
   return (
     <main className={styles.main}>
       <div className={styles.description}>
