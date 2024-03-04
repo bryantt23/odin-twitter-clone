@@ -2,14 +2,16 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export default function Home() {
+  const [message, setMessage] = useState("")
   useEffect(() => {
     const fetch = async () => {
       try {
         const res = await axios.get("http://localhost:3001/")
+        setMessage(res.data.message)
         console.log("🚀 ~ fetch ~ res:", res)
       } catch (error) {
         console.log("🚀 ~ fetch ~ error:", error)
@@ -19,6 +21,7 @@ export default function Home() {
   }, [])
   return (
     <main className={styles.main}>
+      <h1>{message}</h1>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
