@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log("🚀 ~ apiUrl:", apiUrl)
 
 export default function Home() {
   const [message, setMessage] = useState("")
