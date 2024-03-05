@@ -5,12 +5,14 @@ import styles from "./page.module.css";
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 export default function Home() {
   const [message, setMessage] = useState("")
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/")
+        const res = await axios.get(apiUrl)
         setMessage(res.data.message)
         console.log("🚀 ~ fetch ~ res:", res)
       } catch (error) {
