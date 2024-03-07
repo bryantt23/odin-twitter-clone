@@ -4,6 +4,12 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Button from '@mui/material/Button';
+
 
 const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 console.log("🚀 ~ apiUrl:", apiUrl)
@@ -24,7 +30,7 @@ export default function Home() {
   }, [])
   return (
     <main className={styles.main}>
-      <h1>{message}</h1>
+      <h1>{message}</h1><Button variant="contained">Hello world</Button>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
